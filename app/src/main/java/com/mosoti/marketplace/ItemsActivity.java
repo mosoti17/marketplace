@@ -10,17 +10,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class ItemsActivity extends AppCompatActivity {
-    private TextView mItemView;
-    private ListView mListView;
+    @Bind(R.id.itemTextView) TextView mItemView;
+    @Bind(R.id.listView) ListView mListView;
+
     private String[] items ={"Samsung Note 8", "Iphone 7s","Mac Book pro", "hp spectre 13"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
-        mItemView =(TextView) findViewById(R.id.itemTextView);
-        mListView = (ListView) findViewById(R.id.listView);
+
+        ButterKnife.bind(this);
+
         Intent intent = getIntent();
         String item =intent.getStringExtra("item");
 

@@ -8,9 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private Button mItemButton;
-    private EditText mItemText;
+    @Bind(R.id.serchedItemText) EditText mItemText;
+    @Bind(R.id.findItemButton) Button mItemButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        mItemText = (EditText) findViewById(R.id.serchedItemText);
-        mItemButton= (Button) findViewById(R.id.findItemButton);
+        ButterKnife.bind(this);
+
         mItemButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
