@@ -1,9 +1,11 @@
 package com.mosoti.marketplace;
 
+import org.parceler.Parcel;
+
 /**
  * Created by mosoti on 9/15/17.
  */
-
+@Parcel
 public class Item {
     public Integer mItemId;
     public double mPrice;
@@ -12,9 +14,12 @@ public class Item {
 
     public String mStock;
     public String mAvailability;
+    public String mUrl;
+
+    public Item(){}
 
 
-    public Item(Integer itemid,double price, String name,String image,String stock,String availability){
+    public Item(Integer itemid,double price, String name,String image,String stock,String availability,String url){
 
         this.mItemId=itemid;
         this.mPrice=price;
@@ -22,6 +27,7 @@ public class Item {
         this.mImage=image;
         this.mStock=stock;
         this.mAvailability=availability;
+        this.mUrl=url;
 
     }
 
@@ -42,5 +48,8 @@ public class Item {
     }
     public String getName(){
         return mName;
+    }
+    public String getUrl(){
+        return mUrl;
     }
 }

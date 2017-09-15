@@ -76,6 +76,7 @@ public class ItemsActivity extends AppCompatActivity {
                             Log.v("price",String.valueOf(item.getPrice()));
                             Log.v("id",String.valueOf(item.getItemId()));
                             Log.v("stock",item.getStock());
+                            Log.v("url",item.getUrl());
                         }
 
                     }
