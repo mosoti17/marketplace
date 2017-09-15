@@ -6,7 +6,7 @@ package com.mosoti.marketplace;
 
 public class Item {
     public Integer mItemId;
-    public Integer mPrice;
+    public double mPrice;
     public String mName;
     public String mImage;
 
@@ -14,7 +14,7 @@ public class Item {
     public String mAvailability;
 
 
-    public Item(Integer itemid,Integer price, String name,String image,String stock,String availability){
+    public Item(Integer itemid,double price, String name,String image,String stock,String availability){
 
         this.mItemId=itemid;
         this.mPrice=price;
@@ -28,8 +28,8 @@ public class Item {
     public Integer getItemId(){
         return mItemId;
     }
-    public Integer getPrice(){
-        return mItemId;
+    public double getPrice(){
+        return mPrice;
     }
     public String getImage(){
         return mImage;

@@ -3,6 +3,8 @@ package com.mosoti.marketplace;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +23,8 @@ import okhttp3.Response;
 
 public class ItemsActivity extends AppCompatActivity {
     @Bind(R.id.itemTextView) TextView mItemView;
-
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private itemListAdapter mAdapter;
 
 
 
@@ -58,6 +61,13 @@ public class ItemsActivity extends AppCompatActivity {
                 ItemsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+
+                        mAdapter = new itemListAdapter(getApplicationContext(), mItems);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(ItemsActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
 
                         for(Item item:mItems){
                            Log.v("name",item.getName());

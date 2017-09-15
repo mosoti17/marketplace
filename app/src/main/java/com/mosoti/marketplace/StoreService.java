@@ -51,7 +51,7 @@ public class StoreService {
                 for (int i = 0; i < listJSON.length(); i++) {
                     JSONObject itemJSON = listJSON.getJSONObject(i);
                         Integer itemid=itemJSON.getInt("itemId");
-                        Integer price =itemJSON.getInt("salePrice");
+                        double price =itemJSON.getDouble("salePrice");
                         String name=itemJSON.getString("name");
                         String image=itemJSON.getString("mediumImage");
                         String stock=itemJSON.getString("stock");
