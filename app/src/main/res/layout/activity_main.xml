@@ -37,7 +37,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="24dp"
         android:layout_below="@+id/my_toolbar"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
 
 
     <EditText
@@ -56,9 +57,18 @@
         android:text="Find Item"
         android:id="@+id/findItemButton"
         android:background="@color/colorAccent"
-
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="82dp"
+        android:text="Sign In"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
 
 </RelativeLayout>

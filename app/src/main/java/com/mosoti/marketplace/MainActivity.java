@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.serchedItemText) EditText mItemText;
     @Bind(R.id.findItemButton) Button mItemButton;
+    @Bind(R.id.signInButton) Button mSignInButton;
 
 
     @Override
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
                 String item = mItemText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
                 intent.putExtra("item",item);
+                startActivity(intent);
+            }
+        });
+        mSignInButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent =new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
