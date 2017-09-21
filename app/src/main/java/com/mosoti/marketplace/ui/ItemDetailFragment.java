@@ -25,18 +25,13 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class ItemDetailFragment extends Fragment implements View.OnClickListener {
-    @BindView(R.id.imageView2)
-    ImageView mImageView;
-    @BindView(R.id.nameView)
-    TextView mInameView;
-    @BindView(R.id.priceView)
-    TextView mPriceView;
-    @BindView(R.id.availabilityView)
-    TextView mAvailabilityView;
+    @BindView(R.id.imageView2) ImageView mImageView;
+    @BindView(R.id.nameView) TextView mInameView;
+    @BindView(R.id.priceView) TextView mPriceView;
+    @BindView(R.id.availabilityView) TextView mAvailabilityView;
     @BindView(R.id.stockView)
     TextView mStockView;
-    @BindView(R.id.urlView)
-    TextView mUrlView;
+    @BindView(R.id.urlView) TextView mUrlView;
 
     private Item mItem;
 
