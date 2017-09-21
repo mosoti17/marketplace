@@ -1,4 +1,4 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,13 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import butterknife.Bind;
+import com.mosoti.marketplace.R;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.serchedItemText) EditText mItemText;
-    @Bind(R.id.findItemButton) Button mItemButton;
-    @Bind(R.id.signInButton) Button mSignInButton;
+    @BindView(R.id.serchedItemText) EditText mItemText;
+    @BindView(R.id.findItemButton) Button mItemButton;
+    @BindView(R.id.signInButton) Button mSignInButton;
 
 
     @Override

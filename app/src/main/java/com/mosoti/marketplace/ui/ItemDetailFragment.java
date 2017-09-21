@@ -1,4 +1,4 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.ui;
 
 
 import android.content.Intent;
@@ -11,11 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mosoti.marketplace.models.Item;
+import com.mosoti.marketplace.R;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -23,17 +25,17 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class ItemDetailFragment extends Fragment implements View.OnClickListener {
-    @Bind(R.id.imageView2)
+    @BindView(R.id.imageView2)
     ImageView mImageView;
-    @Bind(R.id.nameView)
+    @BindView(R.id.nameView)
     TextView mInameView;
-    @Bind(R.id.priceView)
+    @BindView(R.id.priceView)
     TextView mPriceView;
-    @Bind(R.id.availabilityView)
+    @BindView(R.id.availabilityView)
     TextView mAvailabilityView;
-    @Bind(R.id.stockView)
+    @BindView(R.id.stockView)
     TextView mStockView;
-    @Bind(R.id.urlView)
+    @BindView(R.id.urlView)
     TextView mUrlView;
 
     private Item mItem;

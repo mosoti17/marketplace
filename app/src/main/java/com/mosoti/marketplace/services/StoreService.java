@@ -1,4 +1,7 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.services;
+
+import com.mosoti.marketplace.Constants;
+import com.mosoti.marketplace.models.Item;
 
 import org.json.JSONArray;
 import org.json.JSONException;

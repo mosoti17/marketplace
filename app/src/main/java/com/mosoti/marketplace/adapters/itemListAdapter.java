@@ -1,4 +1,4 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mosoti.marketplace.R;
+import com.mosoti.marketplace.models.Item;
+import com.mosoti.marketplace.ui.ItemDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -51,9 +54,9 @@ public class itemListAdapter extends RecyclerView.Adapter<itemListAdapter.itemVi
     public class itemViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener
 
     {
-            @Bind(R.id.imageView) ImageView itemImageView;
-            @Bind(R.id.nameTextView) TextView nameTextView;
-        @Bind(R.id.priceTextView) TextView priceTextView;
+            @BindView(R.id.imageView) ImageView itemImageView;
+            @BindView(R.id.nameTextView) TextView nameTextView;
+        @BindView(R.id.priceTextView) TextView priceTextView;
 
         private Context mContext;
 

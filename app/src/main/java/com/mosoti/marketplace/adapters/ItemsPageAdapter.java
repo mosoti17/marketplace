@@ -1,8 +1,11 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.mosoti.marketplace.models.Item;
+import com.mosoti.marketplace.ui.ItemDetailFragment;
 
 import java.util.ArrayList;
 

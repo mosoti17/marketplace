@@ -1,4 +1,4 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.models;
 
 import org.parceler.Parcel;
 

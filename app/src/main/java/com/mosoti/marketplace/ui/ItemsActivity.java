@@ -1,4 +1,4 @@
-package com.mosoti.marketplace;
+package com.mosoti.marketplace.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,24 +6,24 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.mosoti.marketplace.models.Item;
+import com.mosoti.marketplace.R;
+import com.mosoti.marketplace.services.StoreService;
+import com.mosoti.marketplace.adapters.itemListAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Response;
 
 public class ItemsActivity extends AppCompatActivity {
-    @Bind(R.id.itemTextView) TextView mItemView;
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.itemTextView) TextView mItemView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private itemListAdapter mAdapter;
 
 
