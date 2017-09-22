@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity  {
     @BindView(R.id.saveditems) TabLayout saveditems;
 
     private MainActivityAdapter mainActivityAdapter;
-    private ViewPager mViewPager;
+    @BindView(R.id.container) ViewPager mViewPager;
 
 
 
