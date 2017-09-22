@@ -109,13 +109,13 @@ public class DaysItemFragment extends Fragment {
                         mStockView.setText(item.getStock());
                         mUrlView.setText("Go To Website");
 
-                            Log.v("name", item.getName());
-                            Log.v("image", item.getImage());
-                            Log.v("available", item.getAvailability());
-                            Log.v("price", String.valueOf(item.getPrice()));
-                            Log.v("id", String.valueOf(item.getItemId()));
-                            Log.v("stock", item.getStock());
-                            Log.v("url", item.getUrl());
+//                            Log.v("name", item.getName());
+//                            Log.v("image", item.getImage());
+//                            Log.v("available", item.getAvailability());
+//                            Log.v("price", String.valueOf(item.getPrice()));
+//                            Log.v("id", String.valueOf(item.getItemId()));
+//                            Log.v("stock", item.getStock());
+//                            Log.v("url", item.getUrl());
 
 
                     }

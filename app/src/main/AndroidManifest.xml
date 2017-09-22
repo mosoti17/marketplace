@@ -25,9 +25,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ItemsActivity" />
-        <activity
-            android:name=".ui.LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".ui.ItemDetailActivity"></activity>
     </application>
 

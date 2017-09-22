@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "957840212977",
+    "firebase_url": "https://marketplace-d48bc.firebaseio.com",
+    "project_id": "marketplace-d48bc",
+    "storage_bucket": "marketplace-d48bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957840212977:android:8bb71bf69348314b",
+        "android_client_info": {
+          "package_name": "com.mosoti.marketplace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957840212977-uhqun2dh7f7k1sp3kjvgtikn7qs4pp56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mosoti.marketplace",
+            "certificate_hash": "867906ac9bdb425d1eee54e2c8269b29294b4140"
+          }
+        },
+        {
+          "client_id": "957840212977-r7i88f1t11rbsiqnnfhhe3vsvnf0n9fg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIF5YVZR848li4ZlQGHvXhCSo5ttgFo00"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957840212977-r7i88f1t11rbsiqnnfhhe3vsvnf0n9fg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
