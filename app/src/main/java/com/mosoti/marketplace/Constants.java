@@ -11,6 +11,7 @@ public class Constants {
     public static final String QUERY = "query";
     public static final String API_KEY_BASE= "apiKey";
     public static final String API_FORMAT = "format";
+    public static final String FIREBASE_CHILD_RESTAURANTS = "restaurants";
 
 
 }

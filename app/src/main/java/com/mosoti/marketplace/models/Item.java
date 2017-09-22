@@ -7,49 +7,57 @@ import org.parceler.Parcel;
  */
 @Parcel
 public class Item {
-    public Integer mItemId;
-    public double mPrice;
-    public String mName;
-    public String mImage;
+    private Integer ItemId;
+    private double Price;
+    private String Name;
+    private String Image;
 
-    public String mStock;
-    public String mAvailability;
-    public String mUrl;
+    private String Stock;
+    private String Availability;
+    private String Url;
+    private String pushId;
 
     public Item(){}
 
 
     public Item(Integer itemid,double price, String name,String image,String stock,String availability,String url){
 
-        this.mItemId=itemid;
-        this.mPrice=price;
-        this.mName=name;
-        this.mImage=image;
-        this.mStock=stock;
-        this.mAvailability=availability;
-        this.mUrl=url;
+        this.ItemId=itemid;
+        this.Price=price;
+        this.Name=name;
+        this.Image=image;
+        this.Stock=stock;
+        this.Availability=availability;
+        this.Url=url;
 
     }
 
     public Integer getItemId(){
-        return mItemId;
+        return ItemId;
     }
     public double getPrice(){
-        return mPrice;
+        return Price;
     }
     public String getImage(){
-        return mImage;
+        return Image;
     }
     public String getStock(){
-        return mStock;
+        return Stock;
     }
     public String getAvailability(){
-        return mAvailability;
+        return Availability;
     }
     public String getName(){
-        return mName;
+        return Name;
     }
     public String getUrl(){
-        return mUrl;
+        return Url;
+    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }

@@ -1,16 +1,12 @@
 package com.mosoti.marketplace.services;
 
-import android.util.Log;
-
 import com.mosoti.marketplace.Constants;
-import com.mosoti.marketplace.models.VOD;
+import com.mosoti.marketplace.models.Item;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -24,7 +20,7 @@ import okhttp3.Response;
  */
 
 public class VODservice {
-    private static VOD item;
+    private static Item item;
 
     public static void findVOD( Callback callback) {
 
@@ -46,7 +42,7 @@ public class VODservice {
 
     }
 
-    public static VOD processResults(Response response) {
+    public static Item processResults(Response response) {
 
 
         try {
@@ -63,7 +59,7 @@ public class VODservice {
                     String stock=itemJSON.getString("stock");
                     String url=itemJSON.getString("productUrl");
                     String availability=itemJSON.getString("offerType");
-                     item= new VOD(itemid,price,name,image,stock,availability,url);
+                     item= new Item(itemid,price,name,image,stock,availability,url);
 
 
 

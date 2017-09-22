@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.mosoti.marketplace.R;
 import com.mosoti.marketplace.adapters.MainActivityAdapter;
 
@@ -27,8 +28,12 @@ public class MainActivity extends AppCompatActivity  {
     @BindView(R.id.trending) TabLayout trending;
     @BindView(R.id.saveditems) TabLayout saveditems;
 
+
+
     private MainActivityAdapter mainActivityAdapter;
     @BindView(R.id.container) ViewPager mViewPager;
+
+    private FirebaseAuth mAuth;
 
 
 
@@ -44,6 +49,7 @@ public class MainActivity extends AppCompatActivity  {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(mainActivityAdapter);
+        mAuth = FirebaseAuth.getInstance();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
@@ -62,6 +68,15 @@ public class MainActivity extends AppCompatActivity  {
 
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
+
+        if(mAuth.getCurrentUser()==null){
+           MenuItem item= menu.findItem(R.id.action_logout);
+           item.setVisible(false);
+
+        }else{
+            MenuItem item= menu.findItem(R.id.action_login);
+            item.setVisible(false);
+        }
         SearchView searchView = (SearchView) menuItem.getActionView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -97,11 +112,21 @@ public class MainActivity extends AppCompatActivity  {
 
             return true;
         }
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
 
     }
-
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
 
     }
 

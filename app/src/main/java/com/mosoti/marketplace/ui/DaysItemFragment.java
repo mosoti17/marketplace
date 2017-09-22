@@ -3,9 +3,6 @@ package com.mosoti.marketplace.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +11,11 @@ import android.widget.TextView;
 
 import com.mosoti.marketplace.R;
 import com.mosoti.marketplace.adapters.ItemsPageAdapter;
-import com.mosoti.marketplace.adapters.itemListAdapter;
-import com.mosoti.marketplace.models.VOD;
+import com.mosoti.marketplace.models.Item;
 import com.mosoti.marketplace.services.VODservice;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +32,7 @@ public class DaysItemFragment extends Fragment {
 
 
     public static final String TAG = DaysItemFragment.class.getSimpleName();
-    public VOD item;
+    public Item item;
 
     @BindView(R.id.imageView2) ImageView mImageView;
     @BindView(R.id.nameView) TextView mInameView;
