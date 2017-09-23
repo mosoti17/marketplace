@@ -7,14 +7,14 @@ import org.parceler.Parcel;
  */
 @Parcel
 public class Item {
-    private Integer ItemId;
-    private double Price;
-    private String Name;
-    private String Image;
+    private Integer itemid;
+    private double price;
+    private String name;
+    private String image;
 
-    private String Stock;
-    private String Availability;
-    private String Url;
+    private String stock;
+    private String availability;
+    private String url;
     private String pushId;
 
     public Item(){}
@@ -22,36 +22,36 @@ public class Item {
 
     public Item(Integer itemid,double price, String name,String image,String stock,String availability,String url){
 
-        this.ItemId=itemid;
-        this.Price=price;
-        this.Name=name;
-        this.Image=image;
-        this.Stock=stock;
-        this.Availability=availability;
-        this.Url=url;
+        this.itemid=itemid;
+        this.price=price;
+        this.name=name;
+        this.image=image;
+        this.stock=stock;
+        this.availability=availability;
+        this.url=url;
 
     }
 
     public Integer getItemId(){
-        return ItemId;
+        return itemid;
     }
     public double getPrice(){
-        return Price;
+        return price;
     }
     public String getImage(){
-        return Image;
+        return image;
     }
     public String getStock(){
-        return Stock;
+        return stock;
     }
     public String getAvailability(){
-        return Availability;
+        return availability;
     }
     public String getName(){
-        return Name;
+        return name;
     }
     public String getUrl(){
-        return Url;
+        return url;
     }
     public String getPushId() {
         return pushId;

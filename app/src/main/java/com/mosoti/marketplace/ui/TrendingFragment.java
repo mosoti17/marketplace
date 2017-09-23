@@ -51,6 +51,8 @@ public class TrendingFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_trending, container, false);
         getTrending();
         ButterKnife.bind(this,view);
+
+
         return view;
     }
 

@@ -97,7 +97,7 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
                 String uid = user.getUid();
                 DatabaseReference restaurantRef = FirebaseDatabase
                         .getInstance()
-                        .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
+                        .getReference(Constants.FIREBASE_CHILD_ITEMS)
                         .child(uid);
 
                 DatabaseReference pushRef = restaurantRef.push();
