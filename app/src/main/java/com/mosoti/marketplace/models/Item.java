@@ -60,4 +60,5 @@ public class Item {
     public void setPushId(String pushId) {
         this.pushId = pushId;
     }
+
 }

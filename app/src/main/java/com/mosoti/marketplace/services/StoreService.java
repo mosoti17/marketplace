@@ -1,5 +1,7 @@
 package com.mosoti.marketplace.services;
 
+import android.util.Log;
+
 import com.mosoti.marketplace.Constants;
 import com.mosoti.marketplace.models.Item;
 
@@ -29,6 +31,7 @@ public class StoreService {
         urlBuilder.addQueryParameter(Constants.API_KEY_BASE,Constants.API_KEY);
         urlBuilder.addQueryParameter(Constants.API_FORMAT,"json");
         String url = urlBuilder.build().toString();
+        Log.v("url",url);
 
         OkHttpClient client = new OkHttpClient();
 

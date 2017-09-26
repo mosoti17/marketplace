@@ -73,9 +73,9 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
 
         Picasso.with(view.getContext()).load(mItem.getImage()).into(mImageView);
         mInameView.setText(mItem.getName());
-        mPriceView.setText(String.valueOf(mItem.getPrice()));
-        mAvailabilityView.setText(mItem.getAvailability());
-        mStockView.setText(mItem.getStock());
+        mPriceView.setText("Price $: "+String.valueOf(mItem.getPrice()));
+        mAvailabilityView.setText("Availability: "+mItem.getAvailability());
+        mStockView.setText("Stock: "+mItem.getStock());
         mUrlView.setText("Go To Website");
 
             mUrlView.setOnClickListener(this);

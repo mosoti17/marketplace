@@ -15,6 +15,14 @@
         android:layout_below="@id/itemTextView"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Sign in"
+    android:layout_gravity="center"
+    android:textAlignment="center"
+    android:textSize="25dp"
+    android:id="@+id/sign_in"/>
 
 
 </FrameLayout>

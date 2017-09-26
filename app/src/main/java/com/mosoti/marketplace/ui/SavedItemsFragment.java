@@ -1,6 +1,7 @@
 package com.mosoti.marketplace.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,10 +28,11 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SavedItemsFragment extends Fragment {
+public class SavedItemsFragment extends Fragment implements View.OnClickListener{
     private DatabaseReference mRestaurantReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.sign_in) TextView mTextView;
 
     private FirebaseAuth mAuth;
 
@@ -55,9 +58,11 @@ public class SavedItemsFragment extends Fragment {
 
         if (mAuth.getCurrentUser()==null){
 
-            Log.v("login","login");
+            mTextView.setText("This feature is only available to logged in members" +"\n" +"Log in");
+            mTextView.setOnClickListener(this);
         }else{
             String uid = user.getUid();
+            mTextView.setVisibility(View.INVISIBLE);
             mRestaurantReference = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_ITEMS)
@@ -86,6 +91,13 @@ public class SavedItemsFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+    }
+    @Override
+    public void onClick(View v){
+        if (v ==mTextView){
+            Intent intent= new Intent(getActivity(),LoginActivity.class);
+            startActivity(intent);
+        }
     }
 //    @Override
 //    public void onDestroy() {

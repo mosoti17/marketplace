@@ -29,7 +29,7 @@ import butterknife.BindView;
  * Created by mosoti on 9/22/17.
  */
 
-public class FirebaseItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  {
 
     View mView;
     Context mContext;
@@ -38,7 +38,7 @@ public class FirebaseItemViewHolder extends RecyclerView.ViewHolder implements V
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+
     }
 
     public void bindItem( Item item) {
@@ -58,31 +58,32 @@ public class FirebaseItemViewHolder extends RecyclerView.ViewHolder implements V
 
     }
 
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Item> items = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ITEMS);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    items.add(snapshot.getValue(Item.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, ItemDetailActivity.class);
-                intent.putExtra("position", itemPosition );
-                intent.putExtra("items", Parcels.wrap(items));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
+//    @Override
+//    public void onClick(View view) {
+//        final ArrayList<Item> items = new ArrayList<>();
+//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ITEMS);
+//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    items.add(snapshot.getValue(Item.class));
+//
+//                }
+//                int size =items.size();
+//                int itemPosition = getLayoutPosition();
+//
+//                Intent intent = new Intent(mContext, ItemDetailActivity.class);
+//                intent.putExtra("position", itemPosition );
+//                intent.putExtra("items", Parcels.wrap(items));
+//
+//                mContext.startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//    }
 }
 

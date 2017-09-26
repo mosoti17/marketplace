@@ -99,9 +99,9 @@ public class DaysItemFragment extends Fragment {
 
                         Picasso.with(getContext()).load(item.getImage()).into(mImageView);
                         mInameView.setText(item.getName());
-                        mPriceView.setText(String.valueOf(item.getPrice()));
-                        mAvailabilityView.setText(item.getAvailability());
-                        mStockView.setText(item.getStock());
+                        mPriceView.setText("Price $"+String.valueOf(item.getPrice()));
+                        mAvailabilityView.setText("Availability: "+item.getAvailability());
+                        mStockView.setText("Stock: "+item.getStock());
                         mUrlView.setText("Go To Website");
 
 //                            Log.v("name", item.getName());

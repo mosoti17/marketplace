@@ -41,7 +41,7 @@ public class ItemsActivity extends AppCompatActivity {
         String item =intent.getStringExtra("item");
         getItems(item);
 
-        mItemView.setText("Here are all the items that match: " +item);
+        mItemView.setText("Search Results For: " +item);
 
     }
 

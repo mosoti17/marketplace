@@ -65,7 +65,13 @@ public class TrendingService {
                     String image=itemJSON.getString("mediumImage");
                     String stock=itemJSON.getString("stock");
                     String url=itemJSON.getString("productUrl");
-                    String availability=itemJSON.getString("offerType");
+                    String availability;
+                    if (itemJSON.has("offerType")){
+                        availability=itemJSON.getString("offerType");
+                    }else{
+                       availability= "Not Available";
+                    }
+
                     Item item= new Item(itemid,price,name,image,stock,availability,url);
                     items.add(item);
                 }
