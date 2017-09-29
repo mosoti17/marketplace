@@ -76,21 +76,24 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
         mPriceView.setText("Price $: "+String.valueOf(mItem.getPrice()));
         mAvailabilityView.setText("Availability: "+mItem.getAvailability());
         mStockView.setText("Stock: "+mItem.getStock());
-        mUrlView.setText("Go To Website");
+        mUrlView.setText("Add To Cart");
 
-            mUrlView.setOnClickListener(this);
+            mUrlView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), WebviewActivity.class);
+                    intent.putExtra("url",mItem.getUrl());
+                    startActivity(intent);
+
+                }
+            });
             mSaveButton.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        if (v== mUrlView){
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mItem.getUrl()));
-            startActivity(webIntent);
 
-        }
         if (v == mSaveButton){
             if (mAuth.getCurrentUser()!=null){
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

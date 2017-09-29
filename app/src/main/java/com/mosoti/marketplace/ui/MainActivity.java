@@ -107,6 +107,11 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if (id==R.id.cart){
+            Intent intent = new Intent(MainActivity.this, WebviewActivity.class);
+            intent.putExtra("url","https://www.walmart.com/cart/");
+            startActivity(intent);
+        }
         if (id == R.id.action_login) {
             Intent intent= new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);

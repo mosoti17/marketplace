@@ -1,14 +1,24 @@
 package com.mosoti.marketplace.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.mosoti.marketplace.Constants;
 import com.mosoti.marketplace.R;
 import com.mosoti.marketplace.adapters.ItemsPageAdapter;
 import com.mosoti.marketplace.models.Item;
@@ -26,7 +36,7 @@ import okhttp3.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DaysItemFragment extends Fragment {
+public class DaysItemFragment extends Fragment implements View.OnClickListener{
 
     private ItemsPageAdapter dayItem;
 
@@ -40,6 +50,9 @@ public class DaysItemFragment extends Fragment {
     @BindView(R.id.availabilityView) TextView mAvailabilityView;
     @BindView(R.id.stockView) TextView mStockView;
     @BindView(R.id.urlView) TextView mUrlView;
+    @BindView(R.id.save)Button mSaveButton;
+
+    private FirebaseAuth mAuth;
 
 
     public DaysItemFragment() {
@@ -61,13 +74,23 @@ public class DaysItemFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_daysitem, container, false);
         ButterKnife.bind(this, view);
+        mAuth = FirebaseAuth.getInstance();
         getVOD();
 
 
-        //mUrlView.setOnClickListener(this);
+        mUrlView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), WebviewActivity.class);
+                intent.putExtra("url",item.getUrl());
+                startActivity(intent);
+
+            }
+        });
+        mSaveButton.setOnClickListener(this);
 
 
-        //mUrlView.setOnClickListener(this);
+
 
         // Inflate the layout for this fragment
         return view;
@@ -102,7 +125,7 @@ public class DaysItemFragment extends Fragment {
                         mPriceView.setText("Price $"+String.valueOf(item.getPrice()));
                         mAvailabilityView.setText("Availability: "+item.getAvailability());
                         mStockView.setText("Stock: "+item.getStock());
-                        mUrlView.setText("Go To Website");
+                        mUrlView.setText("Add To Cart");
 
 //                            Log.v("name", item.getName());
 //                            Log.v("image", item.getImage());
@@ -118,6 +141,46 @@ public class DaysItemFragment extends Fragment {
             }
 
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == mSaveButton){
+            if (mAuth.getCurrentUser()!=null){
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+                DatabaseReference restaurantRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference(Constants.FIREBASE_CHILD_ITEMS)
+                        .child(uid);
+
+                DatabaseReference pushRef = restaurantRef.push();
+
+                String pushId = pushRef.getKey();
+                item.setPushId(pushId);
+                pushRef.setValue(item);
+
+                Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+
+            }else {
+                Snackbar.make(v, "Sign in to Save Item", Snackbar.LENGTH_LONG)
+                        .setAction(getString(R.string.text_undo), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent= new Intent(getActivity(),LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .show();
+
+
+            }
+
+
+        }
+
+
     }
 
 

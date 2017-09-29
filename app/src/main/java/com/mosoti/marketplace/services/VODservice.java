@@ -57,7 +57,15 @@ public class VODservice {
                     String name=itemJSON.getString("name");
                     String image=itemJSON.getString("mediumImage");
                     String stock=itemJSON.getString("stock");
-                    String url=itemJSON.getString("productUrl");
+                String url;
+                if (itemJSON.has("productUrl")) {
+
+
+                    url=itemJSON.getString("addToCartUrl");
+
+                }else{
+                    url=itemJSON.getString("productUrl");
+                }
                     String availability=itemJSON.getString("offerType");
                      item= new Item(itemid,price,name,image,stock,availability,url);
 
