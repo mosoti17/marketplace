@@ -9,7 +9,13 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+
+        android:background="@color/colorPrimary"
+        app:tabIndicatorColor="#f2f2f2"
+        app:tabIndicatorHeight="5dp"
+        app:tabSelectedTextColor="#f2f2f2"
+        app:tabTextColor="#f2f2f2">
 
         <android.support.design.widget.TabItem
             android:id="@+id/dealofday"

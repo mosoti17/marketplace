@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<resources>-->
+
+
+    <!--<color name="colorPrimary">#4CAF50</color>-->
+    <!--<color name="colorPrimaryDark">#388E3C</color>-->
+    <!--<color name="colorPrimaryLight">#C8E6C9</color>-->
+    <!--<color name="colorAccent">#8BC34A</color>-->
+    <!--<color name="colorPrimaryText">#212121</color>-->
+    <!--<color name="colorSecondaryText">#757575</color>-->
+    <!--<color name="colorTextIcons">#FFFFFF</color>-->
+    <!--<color name="colorDivider">#BDBDBD</color>-->
+<!--</resources>-->
+
 <resources>
-
-
-    <color name="colorPrimary">#4CAF50</color>
-    <color name="colorPrimaryDark">#388E3C</color>
-    <color name="colorPrimaryLight">#C8E6C9</color>
-    <color name="colorAccent">#8BC34A</color>
-    <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#757575</color>
-    <color name="colorTextIcons">#FFFFFF</color>
-    <color name="colorDivider">#BDBDBD</color>
+<color name="colorPrimary">#4e342e </color>
+<color name="colorPrimaryLight">#7b5e57 </color>
+<color name="colorPrimaryDark">#260e04 </color>
+<color name="colorSecondary">#ad1457 </color>
+<color name="colorSecondaryLight">#e35183 </color>
+<color name="colorSecondaryDark">#78002e </color>
+<color name="colorPrimaryText">#ffffff </color>
+<color name="colorSecondaryText">#ffffff </color>
+<color name="colorDivider">#BDBDBD</color>
+<color name="colorTextIcons">#FFFFFF</color>
+<color name="colorAccent">#8BC34A</color>
 </resources>
