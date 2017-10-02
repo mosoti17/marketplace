@@ -3,7 +3,8 @@
 * It also displays all the trending items and the Value of The Day
 
 
-
+**Link To Deployed Site**
+* https://appetize.io/manage/private_2breqy3dwxg4q8bzr1mtjt05mc
 **Specs**
 1. Uses can view Trending items,Value of Day and Saved items(If Loged in) on the home page
 2. Click on the Search icon to search for an item
