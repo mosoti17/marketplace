@@ -17,6 +17,7 @@ import com.mosoti.marketplace.Constants;
 import com.mosoti.marketplace.R;
 import com.mosoti.marketplace.models.Item;
 import com.mosoti.marketplace.ui.ItemDetailActivity;
+import com.mosoti.marketplace.util.ItemTouchHelperViewHolder;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -29,7 +30,7 @@ import butterknife.BindView;
  * Created by mosoti on 9/22/17.
  */
 
-public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  {
+public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  implements ItemTouchHelperViewHolder{
 
     View mView;
     Context mContext;
@@ -57,6 +58,25 @@ public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  {
 
         nameTextView.setText(item.getName());
         priceTextView.setText(String.valueOf(item.getPrice()));
+
+    }
+
+    @Override
+    public void onItemSelected() {
+        itemView.animate()
+                .alpha(0.7f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
+
+    }
+
+    @Override
+    public void onItemClear() {
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
 
     }
 
