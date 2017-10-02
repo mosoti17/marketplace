@@ -76,7 +76,7 @@ public class SavedItemsFragment extends Fragment implements View.OnClickListener
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Item, FirebaseItemViewHolder>
-                (Item.class, R.layout.item_list2, FirebaseItemViewHolder.class,
+                (Item.class, R.layout.item_saved_drag, FirebaseItemViewHolder.class,
                         mRestaurantReference) {
 
             @Override
