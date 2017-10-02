@@ -4,7 +4,7 @@
 
 
 **Link To Deployed Site**
-* https://appetize.io/manage/private_2breqy3dwxg4q8bzr1mtjt05mc
+* https://appetize.io/app/wv73y85hbad16f1ppk0g4xb85c
 **Specs**
 1. Uses can view Trending items,Value of Day and Saved items(If Loged in) on the home page
 2. Click on the Search icon to search for an item
