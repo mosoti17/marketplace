@@ -44,6 +44,8 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
     @BindView(R.id.save) Button mSaveButton;
 
     private Item mItem;
+    private String source;
+
 
 
     private FirebaseAuth mAuth;
@@ -61,6 +63,8 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mItem = Parcels.unwrap(getArguments().getParcelable("item"));
+
+
     }
 
 
@@ -70,6 +74,7 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
 
         ButterKnife.bind(this, view);
         mAuth = FirebaseAuth.getInstance();
+        source=getActivity().getIntent().getStringExtra("source");
 
         Picasso.with(view.getContext()).load(mItem.getImage()).into(mImageView);
         mInameView.setText(mItem.getName());
@@ -87,6 +92,10 @@ public class ItemDetailFragment extends Fragment implements View.OnClickListener
 
                 }
             });
+            if (source.equals("saved")){
+                mSaveButton.setVisibility(view.GONE);
+            }
+
             mSaveButton.setOnClickListener(this);
         return view;
     }

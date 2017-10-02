@@ -21,6 +21,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     private ItemsPageAdapter adapterViewPager;
     ArrayList<Item> mItems = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         mItems = Parcels.unwrap(getIntent().getParcelableExtra("items"));
         int startingPosition = getIntent().getIntExtra("position", 0);
+
 
         adapterViewPager = new ItemsPageAdapter(getSupportFragmentManager(), mItems);
         mViewPager.setAdapter(adapterViewPager);

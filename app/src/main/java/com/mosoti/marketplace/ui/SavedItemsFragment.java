@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.mosoti.marketplace.Constants;
 import com.mosoti.marketplace.R;
 import com.mosoti.marketplace.adapters.FirebaseItemViewHolder;
+import com.mosoti.marketplace.adapters.FirebaseListAdapter;
 import com.mosoti.marketplace.models.Item;
+import com.mosoti.marketplace.util.OnStartDragListener;
+import com.mosoti.marketplace.util.SimpleItemTouchHelperCallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,9 +32,10 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SavedItemsFragment extends Fragment implements View.OnClickListener{
+public class SavedItemsFragment extends Fragment implements View.OnClickListener,OnStartDragListener{
     private DatabaseReference mRestaurantReference;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private FirebaseListAdapter mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.sign_in) TextView mTextView;
 
@@ -75,22 +80,26 @@ public class SavedItemsFragment extends Fragment implements View.OnClickListener
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Item, FirebaseItemViewHolder>
-                (Item.class, R.layout.item_saved_drag, FirebaseItemViewHolder.class,
-                        mRestaurantReference) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-            @Override
-            protected void populateViewHolder(FirebaseItemViewHolder viewHolder,
-                                              Item model, int position) {
-                //Log.v("name",model.getName());
-                viewHolder.bindItem(model);
+        mRestaurantReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_ITEMS)
+                .child(uid);
 
-            }
-        };
+        mFirebaseAdapter = new FirebaseListAdapter(
+                Item.class, R.layout.item_saved_drag, FirebaseItemViewHolder.class,
+                        mRestaurantReference,this,this);
+
         mRecyclerView.setHasFixedSize(false);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
     @Override
     public void onClick(View v){
@@ -99,10 +108,14 @@ public class SavedItemsFragment extends Fragment implements View.OnClickListener
             startActivity(intent);
         }
     }
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        mFirebaseAdapter.cleanup();
-//    }
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
+    }
 
 }

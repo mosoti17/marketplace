@@ -16,6 +16,7 @@ public class Item {
     private String availability;
     private String url;
     private String pushId;
+    String index;
 
     public Item(){}
 
@@ -29,6 +30,7 @@ public class Item {
         this.stock=stock;
         this.availability=availability;
         this.url=url;
+        this.index="not_assigned";
 
     }
 
@@ -59,6 +61,13 @@ public class Item {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 }

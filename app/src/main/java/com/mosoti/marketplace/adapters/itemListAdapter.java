@@ -75,6 +75,7 @@ public class itemListAdapter extends RecyclerView.Adapter<itemListAdapter.itemVi
             Intent intent = new Intent(mContext, ItemDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("items", Parcels.wrap(mItems));
+            intent.putExtra("source","search");
             mContext.startActivity(intent);
         }
         public void bindItem(Item item){

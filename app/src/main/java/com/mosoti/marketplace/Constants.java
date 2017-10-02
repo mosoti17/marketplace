@@ -12,6 +12,7 @@ public class Constants {
     public static final String API_KEY_BASE= "apiKey";
     public static final String API_FORMAT = "format";
     public static final String FIREBASE_CHILD_ITEMS = "items";
+    public static final String FIREBASE_QUERY_INDEX = "index";
 
 
 }

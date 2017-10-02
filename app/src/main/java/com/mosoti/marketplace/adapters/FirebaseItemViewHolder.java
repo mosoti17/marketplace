@@ -33,6 +33,7 @@ public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  {
 
     View mView;
     Context mContext;
+    public ImageView drag;
 
     public FirebaseItemViewHolder(View itemView) {
         super(itemView);
@@ -46,6 +47,7 @@ public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  {
        // Log.v("name",item.getName());
 
         ImageView itemImageView =(ImageView) mView.findViewById(R.id.imageView);
+        drag=(ImageView)mView.findViewById(R.id.imageView3);
 
         TextView nameTextView =(TextView) mView.findViewById(R.id.nameTextView);
         TextView priceTextView =(TextView) mView.findViewById(R.id.priceTextView);
@@ -58,32 +60,6 @@ public class FirebaseItemViewHolder extends RecyclerView.ViewHolder  {
 
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        final ArrayList<Item> items = new ArrayList<>();
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ITEMS);
-//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    items.add(snapshot.getValue(Item.class));
-//
-//                }
-//                int size =items.size();
-//                int itemPosition = getLayoutPosition();
-//
-//                Intent intent = new Intent(mContext, ItemDetailActivity.class);
-//                intent.putExtra("position", itemPosition );
-//                intent.putExtra("items", Parcels.wrap(items));
-//
-//                mContext.startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
-//    }
+
 }
 
